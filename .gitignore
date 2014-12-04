@@ -1,0 +1,11 @@
+Makefile
+Makefile.in
+.deps/
+.libs/
+config.guess
+config.log
+config.status
+config.sub
+configure
+*.la
+*.o

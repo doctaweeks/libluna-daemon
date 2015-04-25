@@ -26,12 +26,12 @@ static int create_pid_file(const char *name)
 	const char *base = "/var/run";
 
 	//TODO: replace / with \0
-	len = strlen(name) + strlen(base) + 6;
+	len = 2 * strlen(name) + strlen(base) + 7;
 	path = malloc(len);
 	if (path == NULL)
 		return -1;
 
-	snprintf(path, len, "%s/%s.pid", base, name);
+	snprintf(path, len, "%s/%s/%s.pid", base, name, name);
 
 	fd = open(path, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
 	free(path);

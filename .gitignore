@@ -8,4 +8,12 @@ config.status
 config.sub
 configure
 *.la
+*.lo
 *.o
+aclocal.m4
+autom4te.cache/
+depcomp
+install-sh
+libtool
+ltmain.sh
+missing

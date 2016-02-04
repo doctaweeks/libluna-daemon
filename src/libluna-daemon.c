@@ -15,13 +15,30 @@ int switch_user(int uid, int gid)
 
 #define BUF_SIZE 100
 
+static int write_pid(int fd)
+{
+	char buf[BUF_SIZE];
+	size_t len;
+	ssize_t ret;
+	size_t count;
+
+	snprintf(buf, BUF_SIZE, "%ld\n", (long) getpid());
+	len = strlen(buf);
+	ret = write(fd, buf, len);
+	if (ret < 1)
+		return -1;
+	count = (size_t)ret; /* safe cast */
+	if (count != len)
+		return -1;
+	return 0;
+}
+
 static int create_pid_file(const char *name)
 {
 	char *path;
-	char buf[BUF_SIZE];
 	int fd;
 	int ret;
-	int len;
+	size_t len;
 
 	const char *base = "/var/run";
 
@@ -45,12 +62,9 @@ static int create_pid_file(const char *name)
 		return ret;
 	}
 
-	snprintf(buf, BUF_SIZE, "%ld\n", (long) getpid());
-	len = strlen(buf);
-	ret = write(fd, buf, len);
-	if (ret != len) {
+	if (write_pid(fd) < 0) {
 		close(fd);
-		return ret;
+		return -1;
 	}
 
 	return fd;

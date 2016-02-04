@@ -40,13 +40,16 @@ static int create_pid_file(const char *name)
 		return fd;
 
 	ret = ftruncate(fd, 0);
-	if (ret < 0)
+	if (ret < 0) {
+		close(fd);
 		return ret;
+	}
 
 	snprintf(buf, BUF_SIZE, "%ld\n", (long) getpid());
 	len = strlen(buf);
 	ret = write(fd, buf, len);
 	if (ret != len) {
+		close(fd);
 		return ret;
 	}
 

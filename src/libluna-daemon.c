@@ -7,7 +7,7 @@
 
 #include "libluna-daemon.h"
 
-int switch_user(int uid, int gid)
+int switch_user(uid_t uid, gid_t gid)
 {
 	capng_clear(CAPNG_SELECT_BOTH);
 	return capng_change_id(uid, gid, CAPNG_INIT_SUPP_GRP | CAPNG_CLEAR_BOUNDING);

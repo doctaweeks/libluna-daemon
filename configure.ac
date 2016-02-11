@@ -1,4 +1,4 @@
-AC_INIT([libluna-daemon], [1.0])
+AC_INIT([libluna-daemon], [0.1.2])
 AC_CONFIG_SRCDIR([src])
 
 AM_INIT_AUTOMAKE

@@ -9,4 +9,4 @@ AC_PROG_CC_C99
 
 PKG_CHECK_MODULES([libcap_ng], [libcap-ng])
 
-AC_OUTPUT([Makefile])
+AC_OUTPUT([Makefile src/libluna-daemon.pc])

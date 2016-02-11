@@ -1,5 +1,9 @@
 AUTOMAKE_OPTIONS = foreign
 
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = src/libluna-daemon.pc
+DISTCLEANFILES = $(pkgconfig_DATA)
+
 include_HEADERS=src/libluna-daemon.h
 
 lib_LTLIBRARIES=libluna-daemon.la

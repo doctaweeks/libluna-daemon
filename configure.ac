@@ -1,4 +1,4 @@
-AC_INIT([libluna-daemon], [0.1.2])
+AC_INIT([libluna-daemon], [0.1.3])
 AC_CONFIG_SRCDIR([src])
 AC_CONFIG_MACRO_DIRS([m4])
 

@@ -1,11 +1,11 @@
+#include "libluna-daemon.h"
+
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <cap-ng.h>
 #include <string.h>
 #include <stdio.h>
-
-#include "libluna-daemon.h"
 
 int switch_user(uid_t uid, gid_t gid)
 {

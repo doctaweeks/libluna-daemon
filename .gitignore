@@ -19,3 +19,4 @@ ltmain.sh
 missing
 src/libluna-daemon.pc
 compile
+src/.dirstamp
